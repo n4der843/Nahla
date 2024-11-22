@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+  @apply bg-white rounded-lg shadow-md;
+}
+
+.button {
+  @apply px-4 py-2 rounded-md transition-colors;
+}
+
+.input {
+  @apply rounded-md border border-gray-300 px-3 py-2;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+}
+
+.dropdown {
+  @apply relative inline-block text-left;
+} 

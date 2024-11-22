@@ -1,0 +1,15 @@
+/* Remove any conflicting overflow styles */
+* {
+  box-sizing: border-box;
+}
+
+.content-section {
+  position: relative;
+  z-index: 10;
+  background-color: #020817;
+}
+
+/* Override any overflow hidden */
+body, #root {
+  overflow-y: auto !important;
+} 

@@ -1,21 +1,47 @@
-export function Button({ children, className = "", variant = "default", size = "md", ...props }) {
-  const baseStyles = "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-  
-  const variants = {
-    default: "bg-primary text-primary-foreground hover:bg-primary/90",
-    outline: "border-2 border-white bg-transparent hover:bg-accent hover:text-accent-foreground"
-  }
-  
-  const sizes = {
-    lg: "h-11 px-8 text-base",
-    md: "h-10 px-4 py-2"
-  }
-  
-  const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`
-  
+import React from 'react'
+
+export const Button = ({ 
+  children, 
+  variant = "default", 
+  size = "default", 
+  className = "", 
+  onClick,
+  ...props 
+}) => {
+  // Add new variant styles while keeping existing ones
+  const variantStyles = {
+    default: "bg-blue-600 text-white hover:bg-blue-700",
+    ghost: "bg-transparent hover:bg-gray-100",
+    ...props.variantStyles // Allow custom variant styles from existing usage
+  };
+
+  // Add new size styles while keeping existing ones
+  const sizeStyles = {
+    default: "px-4 py-2",
+    sm: "px-2 py-1 text-sm",
+    lg: "px-6 py-3 text-lg",
+    icon: "p-2",
+    ...props.sizeStyles // Allow custom size styles from existing usage
+  };
+
+  // Combine styles while maintaining existing className prop
+  const combinedClassName = `
+    rounded-md 
+    transition-colors 
+    ${variantStyles[variant] || ''} 
+    ${sizeStyles[size] || ''} 
+    ${className}
+  `.trim();
+
   return (
-    <button className={classes} {...props}>
+    <button 
+      className={combinedClassName}
+      onClick={onClick}
+      {...props}
+    >
       {children}
     </button>
   )
-} 
+}
+
+export default Button

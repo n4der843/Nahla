@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Animation classes */
+.nav-item {
+  opacity: 0;
+}
+
+.hero-content {
+  opacity: 0;
+}
+
+.feature-card {
+  opacity: 0;
+}
+
+.stat-item {
+  opacity: 0;
+}
+
+.animate-section {
+  opacity: 0;
+} 
